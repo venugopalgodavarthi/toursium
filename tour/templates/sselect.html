@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>state page</title>
+</head>
+<body>
+    {%if res%}
+    <table border=2>
+    <tr><th>STATE ID</th><th> STATE NAME</th><th>STATE IMG</th></tr>
+    {%for i in res%}
+    <tr><td>{{i.stateid}}</td><td>{{i.sname}}</td><td>
+    <a href="{%url 'tour:selectcity' pk=i.stateid %}">
+        <button> <img src="{{i.simg.url}}" weight=250 height=200 ></button>
+    </a></td></tr>
+    {%endfor%}
+    </table>
+
+    {%else%}
+    <h2>no data is found</h2>
+    {%endif%}
+
+</body>
+</html>
